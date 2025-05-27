@@ -1,0 +1,84 @@
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+      :root {
+        /* Light theme (secondary, dark is default) */
+        --background: 0 0% 100%; /* White */
+        --foreground: 224 71% 4%; /* Dark Blue */
+        --card: 0 0% 100%;
+        --card-foreground: 224 71% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 224 71% 4%;
+        --primary: 340 82% 52%; /* Hopeful Pink/Coral */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 210 40% 96.1%; /* Light Grayish Blue */
+        --secondary-foreground: 222 47% 11%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215 20% 65%; /* Lighter Gray */
+        --accent: 160 70% 45%; /* Supporting Teal/Green */
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84% 60%; /* Red */
+        --destructive-foreground: 0 0% 100%;
+        --border: 214 32% 91%; /* Light Gray Border */
+        --input: 214 32% 91%;
+        --ring: 340 82% 52%;
+        --radius: 0.75rem; 
+      }
+
+      .dark {
+        --background: 220 20% 7%; /* Near Black */
+        --foreground: 210 40% 98%; /* Very Light Gray / Off-white for text */
+        --card: 220 20% 10%; /* Dark Gray for cards */
+        --card-foreground: 210 40% 98%;
+        --popover: 220 20% 7%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 340 85% 60%; /* Brighter Pink/Coral for dark mode */
+        --primary-foreground: 210 40% 98%; 
+        --secondary: 217 33% 17%; /* Darker Blue-Gray */
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 55%; 
+        --accent: 160 70% 50%; /* Brighter Teal/Green for dark mode */
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 70% 50%; /* Darker Red */
+        --destructive-foreground: 210 40% 98%;
+        --border: 217 33% 22%; 
+        --input: 217 33% 19%; 
+        --ring: 340 85% 70%; 
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        font-family: 'Inter', sans-serif;
+      }
+    }
+
+    .gradient-text {
+      @apply bg-gradient-to-r from-primary via-pink-500 to-accent bg-clip-text text-transparent;
+    }
+    
+    .professional-card {
+      @apply bg-card rounded-lg shadow-lg border border-border transition-all duration-300 ease-in-out;
+    }
+
+    .professional-input {
+       @apply bg-input border-border focus:border-primary focus:ring-1 focus:ring-primary text-foreground placeholder:text-muted-foreground;
+    }
+    
+    .dark .professional-card {
+        @apply bg-card border-border shadow-2xl;
+    }
+    
+    .glassmorphism-card { 
+      @apply bg-card/70 dark:bg-card/60 backdrop-blur-lg border border-card/20 dark:border-card/25 shadow-xl;
+    }
+  
